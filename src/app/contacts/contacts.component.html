@@ -1,0 +1,21 @@
+<a href="#" id="new-button">New</a>
+<table>
+<thead>
+    <tr>
+        <th>Nombres </th>
+        <th>Correo</th>
+        <th>Estado </th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let contactInfo of contactData"> 
+        <td>{{contactInfo.Nombre}}</td>
+        <td>{{contactInfo.Correo}}</td>
+        <td>{{contactInfo.Estado}}</td>
+        <td>
+            <a href="#" (click)="editRecord(this)">Editar</a>
+            <a href="#" (click)="deleteRecord(this)">Borrar</a>
+        </td>
+    </tr>
+</tbody>
+</table>
