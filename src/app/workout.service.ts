@@ -22,7 +22,7 @@ export class WorkoutService {
   }
 
   public remove(contacto) {
-    return this.http.delete(this.accessPointUrl + '/' + contacto.id, {headers: this.headers});
+    return this.http.delete(this.accessPointUrl + '/' + contacto.Id, {headers: this.headers});
   }
 
   public update(contacto) {

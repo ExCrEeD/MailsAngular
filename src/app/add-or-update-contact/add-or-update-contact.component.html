@@ -1,0 +1,21 @@
+<h5 *ngIf="!contactInfo || contactInfo.id === undefined">Agregar un nuevo contacto</h5>
+<h5 *ngIf="contactInfo && contactInfo.id !== undefined">Actualizar Contacto (ID: )</h5>
+<div>
+    <h2></h2>
+    <form>
+        <div class="form-group">
+            <label for="nombre-input">Nombre de contacto</label>
+            <input type="text" id="nombre-input" [(ngModel)]="contactInfo.Nombre" name = "Nombre" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="correo-input">Correo</label>
+            <input type="email" id="correo-input" [(ngModel)]="contactInfo.Correo" name = "Correo" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="estado-input">Estado</label>
+            <input type="text" id="estado-input" [(ngModel)]="contactInfo.Estado" name = "Estado" class="form-control" />
+        </div>
+        <button type="button" class="btn btn-primary" (click)="addOrUpdateContactRecord($event);">Guardar</button>
+
+    </form>
+   </div>

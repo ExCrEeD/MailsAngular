@@ -8,16 +8,18 @@ import { HomeComponent } from './home/home.component';
 
 import { WorkoutService } from './workout.service';
 import { HttpClientModule } from '@angular/common/http';
-import { AddOrUpadateContactComponent } from './add-or-upadate-contact/add-or-upadate-contact.component';
 import { FormsModule } from '@angular/forms';
+import { AddOrUpdateContactComponent } from './add-or-update-contact/add-or-update-contact.component';
 import * as _ from 'lodash';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactsComponent,
     HomeComponent,
-    AddOrUpadateContactComponent
+    AddOrUpdateContactComponent,
+    
   ],
   imports: [
     BrowserModule,
