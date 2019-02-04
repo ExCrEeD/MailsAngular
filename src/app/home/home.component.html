@@ -1,10 +1,12 @@
 <!-- <app-contacts [contactData]="contactData"></app-contacts> -->
+<br>
+<br>
 <div class="row">
     <div class="col-md-4">
-         <app-add-or-update-contact (contactCreated)="createOrUpdateContact($event)" [attr.ContactInfo]="currentContact"></app-add-or-update-contact>  
+         <app-add-or-update-contact (contactCreated)="createOrUpdateContact($event)" [contactInfo]="currentContact"></app-add-or-update-contact>  
     </div>
-    <div class="col-md-8">       
-        <app-contacts [contactData]="contactData" (editClicked)="editClicked($event)" (newClicked)="editClicked($event)" (recordDeleted)="deleteClicked($event)"></app-contacts>
+    <div class="col-md-6">       
+        <app-contacts [contactData]="contactData" (editClicked)="editClicked($event)" (newClicked)="newClicked()" (recordDeleted)="deleteClicked($event)"></app-contacts>
     </div>
 </div>
 <!-- <app-grid-jogging [joggingData]="joggingData" (editClicked)="editClicked($event)" (newClicked)="newClicked()" (recordDeleted)="deleteClicked($event)"></app-grid-jogging> -->

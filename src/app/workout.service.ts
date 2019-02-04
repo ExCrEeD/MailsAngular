@@ -26,7 +26,7 @@ export class WorkoutService {
   }
 
   public update(contacto) {
-    return this.http.put(this.accessPointUrl + '/' + contacto.id, contacto, {headers: this.headers});
+    return this.http.put(this.accessPointUrl + '/' + contacto.Id, contacto, {headers: this.headers});
   }
 
   

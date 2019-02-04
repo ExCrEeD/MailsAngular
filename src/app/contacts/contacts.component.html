@@ -1,10 +1,12 @@
-<a href="#" id="new-button">New</a>
-<table>
+<div>
+<!-- <a href="#" id="new-button">Nuevo Contacto</a> -->
+<button type="button" class="btn btn-primary" (click)="newRecord()">Nuevo Contacto</button>
+<table class = "table table-bordered">
 <thead>
     <tr>
-        <th>Nombres </th>
-        <th>Correo</th>
-        <th>Estado </th>
+        <th scope="col">Nombres </th>
+        <th scope="col">Correo</th>
+        <th scope="col">Estado </th>
     </tr>
 </thead>
 <tbody>
@@ -12,10 +14,15 @@
         <td>{{contactInfo.Nombre}}</td>
         <td>{{contactInfo.Correo}}</td>
         <td>{{contactInfo.Estado}}</td>
-        <td>
-            <a href="#" (click)="editRecord(contactInfo)">Editar</a>
-            <a href="#" (click)="deleteRecord(contactInfo)">Borrar</a>
+        <td class="align-middle">
+         <!--    <a  (click)="editRecord(contactInfo)">Editar</a> -->
+              &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary" (click)="editRecord(contactInfo)">Editar</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger" (click)="deleteRecord(contactInfo)">Borrar</button>
+           <!--  <a  (click)="deleteRecord(contactInfo)">Borrar</a> -->
         </td>
     </tr>
 </tbody>
 </table>
+
+</div>

@@ -22,15 +22,15 @@ export class AddOrUpdateContactComponent implements OnInit {
   private clearContactInfo = function()
   {
     // crear un objeto de contacto vacio
-    this.contactInfo = { id:undefined,Nombre:"",Correo:"",Estado:false}
+    this.contactInfo = { id:undefined,Nombre:"",Correo:"",Estado:""}
   }
   
   public addOrUpdateContactRecord = function(event)
-  {
+  {    
       this.contactCreated.emit(this.contactInfo);
       this.clearContactInfo();
   }  
-
+  
   
 
 }

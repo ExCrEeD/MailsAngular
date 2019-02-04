@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkoutService } from '../workout.service'
-import * as _ from 'underscore';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   private setInitialValuesForContactData()
   {
     return{
-          id:undefined,Nombre:"",Correo:"",Estado:true
+          id:undefined,Nombre:"",Correo:"",Estado:""
     }
   }
 
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     // si contacto esta presente en contactdata se asume un update si no es un create
     let contactWithId;
     contactWithId = _.find(this.contactData,(tempContact=> tempContact.id === contact.id));
-    if (contactWithId.id != undefined)
+    if (typeof(contactWithId.Id)==="number")
     {
        const updateIndex = _.findIndex(this.contactData,{id:contactWithId.id});
        this.workoutServices.update(contact).subscribe(contactRecord=> this.contactData.splice(updateIndex,1,contact));

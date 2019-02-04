@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AddOrUpdateContactComponent } from './add-or-update-contact/add-or-update-contact.component';
 import * as _ from 'lodash';
+import { MainpageComponent } from './mainpage/mainpage.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import * as _ from 'lodash';
     ContactsComponent,
     HomeComponent,
     AddOrUpdateContactComponent,
+    MainpageComponent,
     
   ],
   imports: [
