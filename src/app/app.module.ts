@@ -14,6 +14,8 @@ import { AddOrUpdateContactComponent } from './add-or-update-contact/add-or-upda
 import * as _ from 'lodash';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { CorreosComponent } from './correos/correos.component';
+import { HomeCorreoComponent } from './home-correo/home-correo.component';
+import { AddOrUpdateCorreoComponent } from './add-or-update-correo/add-or-update-correo.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { CorreosComponent } from './correos/correos.component';
     AddOrUpdateContactComponent,
     MainpageComponent,
     CorreosComponent,
+    HomeCorreoComponent,
+    AddOrUpdateCorreoComponent,
     
   ],
   imports: [

@@ -8,6 +8,8 @@ export class CorreosService {
 
   private headers: HttpHeaders;
   private accessPointUrl: string = 'http://localhost:52693/api/correo';
+  
+
   constructor(private http: HttpClient) 
   { 
     this.headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
