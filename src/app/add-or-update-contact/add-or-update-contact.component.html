@@ -2,22 +2,24 @@
         <h5 *ngIf="contactInfo.Id === undefined">Crear un nuevo contacto</h5> 
         <h5 *ngIf="contactInfo.Id != undefined">Editar contacto id {{contactInfo.Id}}</h5>
     <h2></h2>
-    <form>
+    <form required = "false">
         <div class="form-group">
-            <label for="nombre-input">Nombre de contacto</label>
-            <input type="text" id="nombre-input" [(ngModel)]="contactInfo.Nombre" name = "Nombre" class="form-control" />
+            <label for="nombre">Nombre de contacto</label>
+            <input type="text" #nombre="ngModel" id="nombre" [(ngModel)]="contactInfo.Nombre" name = "nombre" class="form-control" required/>
+            <div *ngIf="nombre.touched && !nombre.valid">
+                <div *ngIf="nombre.errors.required">nombre es requerido </div> 
+            </div>            
         </div>
         <div class="form-group">
             <label for="correo-input">Correo</label>
-            <input type="email" id="correo-input" [(ngModel)]="contactInfo.Correo" name = "Correo" class="form-control" />
+            <input type="email" id="correo-input" [(ngModel)]="contactInfo.Correo" name = "Correo" class="form-control" required/>
         </div>
         <div class="form-group">
             <label for="estado-input">Estado</label>
-            <select id="estado-input" [(ngModel)]="contactInfo.Estado" name = "Estado" class="form-control"  >
-                <option [ngValue]="undefined" disabled>Seleccione un Estado</option>
+            <select id="estado-input" [(ngModel)]="contactInfo.Estado" name = "estado-input" class="form-control" required >           
                 <option value = "Activo" >Activo</option>
                 <option value = "Inactivo">Inactivo</option>
-            </select>   
+            </select>             
             <!-- <input type="text" id="estado-input" [(ngModel)]="contactInfo.Estado" name = "Estado" class="form-control" /> -->
         </div>
         <button type="button" class="btn btn-primary" (click)="addOrUpdateContactRecord($event);">Guardar</button>
