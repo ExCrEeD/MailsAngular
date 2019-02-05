@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   private setInitialValuesForContactData()
   {
     return{
-          id:undefined,Nombre:"",Correo:"",Estado:""
+          Id:undefined,Nombre:"",Correo:"",Estado:""
     }
   }
 
@@ -31,13 +31,14 @@ export class HomeComponent implements OnInit {
   {
     // si contacto esta presente en contactdata se asume un update si no es un create
     let contactWithId;
-    contactWithId = _.find(this.contactData,(tempContact=> tempContact.id === contact.id));
-    if (typeof(contactWithId.Id)==="number")
+    contactWithId = _.find(this.contactData,(tempContact=> tempContact.Id === contact.Id));
+    if (contactWithId)
     {
-       const updateIndex = _.findIndex(this.contactData,{id:contactWithId.id});
+       const updateIndex = _.findIndex(this.contactData,{Id:contactWithId.Id});
        this.workoutServices.update(contact).subscribe(contactRecord=> this.contactData.splice(updateIndex,1,contact));
     }else{ 
        this.workoutServices.add(contact).subscribe(contactRecord=> this.contactData.push(contact))
+       this.currentContact = this.setInitialValuesForContactData();
     }
     this.currentContact = this.setInitialValuesForContactData();
   }
@@ -54,7 +55,7 @@ export class HomeComponent implements OnInit {
     /* this.workoutServices.remove(record); */
      /* console.log(record); */
    
-     const deleteIndex = _.findIndex(this.contactData, {id: record.id});
+     const deleteIndex = _.findIndex(this.contactData, {Id: record.Id});
      this.workoutServices.remove(record).subscribe(
       result => this.contactData.splice(deleteIndex, 1) 
       

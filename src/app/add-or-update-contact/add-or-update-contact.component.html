@@ -13,8 +13,9 @@
         </div>
         <div class="form-group">
             <label for="estado-input">Estado</label>
-            <select id="estado-input" [(ngModel)]="contactInfo.Estado" name = "Estado" class="form-control">
-                <option value = "Activo">Activo</option>
+            <select id="estado-input" [(ngModel)]="contactInfo.Estado" name = "Estado" class="form-control"  >
+                <option [ngValue]="undefined" disabled>Seleccione un Estado</option>
+                <option value = "Activo" >Activo</option>
                 <option value = "Inactivo">Inactivo</option>
             </select>   
             <!-- <input type="text" id="estado-input" [(ngModel)]="contactInfo.Estado" name = "Estado" class="form-control" /> -->
