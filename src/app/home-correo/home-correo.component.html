@@ -1,3 +1,10 @@
-<p>
-  home-correo works!
-</p>
+<br>
+<br>
+<div class="row">
+    <div class="col-md-4">
+         <app-add-or-update-correo (correoCreated)="createOrUpdateCorreo($event)" [correoInfo]="currentCorreo"></app-add-or-update-correo>  
+    </div>
+    <div class="col-md-4">       
+        <app-correos [correoData]="correoData" (editClicked)="editClicked($event)" (newClicked)="newClicked()" (recordDeleted)="deleteClicked($event)"></app-correos>
+    </div>
+</div>

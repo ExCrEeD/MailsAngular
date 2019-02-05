@@ -1,5 +1,4 @@
 import { Component, OnInit,EventEmitter,Input,Output } from '@angular/core';
-import {NgForm, FormGroup, FormBuilder,Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-or-update-contact',

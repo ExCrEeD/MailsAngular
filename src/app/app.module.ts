@@ -16,6 +16,7 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { CorreosComponent } from './correos/correos.component';
 import { HomeCorreoComponent } from './home-correo/home-correo.component';
 import { AddOrUpdateCorreoComponent } from './add-or-update-correo/add-or-update-correo.component';
+import { EnviarCorreoComponent } from './enviar-correo/enviar-correo.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { AddOrUpdateCorreoComponent } from './add-or-update-correo/add-or-update
     CorreosComponent,
     HomeCorreoComponent,
     AddOrUpdateCorreoComponent,
+    EnviarCorreoComponent,
     
   ],
   imports: [

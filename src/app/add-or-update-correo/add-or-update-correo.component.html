@@ -1,3 +1,18 @@
-<p>
-  add-or-update-correo works!
-</p>
+ <div class="container">
+        <h5 *ngIf="correoInfo.Id === undefined">Crear un nuevo correo de envio </h5> 
+        <h5 *ngIf="correoInfo.Id != undefined">Editar correo id {{correoInfo.Id}}</h5>
+    <h2></h2>
+    <form required = "false">
+        
+        <div class="form-group">
+            <label for="correo-input">Correo</label>
+            <input type="email" id="correo-input" [(ngModel)]="correoInfo.Email" name = "Correo" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="estado-input">Contraseña</label>
+            <input type="password" id="pass-input" [(ngModel)]="correoInfo.Password" name = "Pass" class="form-control" required/>                      
+        </div>
+        <button type="button" class="btn btn-primary" (click)="addOrUpdateCorreoRecord($event);" >Guardar</button>
+        <div *ngIf="validar === 'true'">Todos los campos son requeridos </div> 
+    </form>
+</div> 

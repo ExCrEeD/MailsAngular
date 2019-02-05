@@ -1,6 +1,5 @@
-import { Component, OnInit,EventEmitter } from '@angular/core';
-import { CorreosService } from '../Services/correos.service';
-import * as _ from 'lodash';
+import { Component, OnInit,EventEmitter,Input,Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-correos',
@@ -9,41 +8,32 @@ import * as _ from 'lodash';
 })
 export class CorreosComponent implements OnInit {
   
-  public correoData: Array<any>;
-  public currentCorreo: any;
-  /* recordDeleted = new EventEmitter<any>();
-  editClicked = new EventEmitter<any>();
-  newClicked = new EventEmitter<any>(); */
-  constructor(private correosService:CorreosService)
-  {
-      correosService.get().subscribe((data:any)=>this.correoData=data);
-      this.currentCorreo = this.setInitialValuesForCorreoData();
-  }
+  @Output() recordDeleted = new EventEmitter<any>();
+  @Output() editClicked = new EventEmitter<any>();
+  @Output() newClicked = new EventEmitter<any>();
+  @Input() correoData: Array<any>;
+  constructor(){ }
 
   ngOnInit() {
   }
 
-  private setInitialValuesForCorreoData()
-  {
-    return {Id:undefined,Email:"",Password:""}
-  }
 
   public deleteRecord(record)
   {
-     const deleteIndex = _.findIndex(this.correoData, {Id: record.Id});
-     this.correosService.remove(record).subscribe(
-      result => this.correoData.splice(deleteIndex, 1) );
+     this.recordDeleted.emit(record);
   }
 
   public editRecord(record)
   {
-    /* const cloneRecord = Object.assign({},record);
-    this.editClicked.emit(cloneRecord); */
+    const cloneRecord = Object.assign({},record);
+    this.editClicked.emit(cloneRecord);
   }
   
   public newRecord()
   {
-    /* public currentCorreo */
+    this.newClicked.emit();
   }
+  
 }
+
   
