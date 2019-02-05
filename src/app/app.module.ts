@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { HomeComponent } from './home/home.component';
 
-import { WorkoutService } from './workout.service';
+import { WorkoutService } from './Services/workout.service';
+import { CorreosService  } from './Services/correos.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AddOrUpdateContactComponent } from './add-or-update-contact/add-or-update-contact.component';
@@ -31,7 +32,7 @@ import { CorreosComponent } from './correos/correos.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [WorkoutService],
+  providers: [WorkoutService,CorreosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,25 @@
-<p>
-  correos works!
-</p>
+<div>
+  <!-- <a href="#" id="new-button">Nuevo correoo</a> -->
+  <button type="button" class="btn btn-primary" (click)="newRecord()">Nuevo Correo</button>
+  <table class = "table table-bordered">
+  <thead>
+      <tr>
+          <th scope="col">Correo</th>
+          <th scope="col">Contraseña</th>
+      </tr>
+  </thead>
+  <tbody>
+       <tr *ngFor="let correoInfo of correoData"> 
+          <td>{{correoInfo.Email}}</td>
+          <td>{{correoInfo.Password}}</td>
+          <td class="align-middle">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="button" class="btn btn-primary" (click)="editRecord(correoInfo)">Editar</button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="button" class="btn btn-danger" (click)="deleteRecord(correoInfo)">Borrar</button>           
+          </td>
+      </tr> 
+  </tbody>
+  </table>
+  
+  </div>
+  

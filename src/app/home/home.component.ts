@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WorkoutService } from '../workout.service'
+import { WorkoutService } from '../Services/workout.service'
 import * as _ from 'lodash';
 
 @Component({

@@ -1,4 +1,5 @@
 import { Component, OnInit,EventEmitter,Input,Output } from '@angular/core';
+import {NgForm, FormGroup, FormBuilder,Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-or-update-contact',
@@ -9,11 +10,12 @@ export class AddOrUpdateContactComponent implements OnInit {
 
   @Output() contactCreated = new EventEmitter<any>();
   @Input()  contactInfo:any;
-  
   public buttonText  = "Guardar";
+  public validar = "false";
 
   constructor() {
     this.clearContactInfo();
+    
    }
 
   ngOnInit() {
@@ -25,12 +27,18 @@ export class AddOrUpdateContactComponent implements OnInit {
     this.contactInfo = { Id:undefined,Nombre:"",Correo:"",Estado:""}
   }
   
+
   public addOrUpdateContactRecord = function(event)
-  {    
-      this.contactCreated.emit(this.contactInfo);
-      this.clearContactInfo();
+  {   
+    this.validar = "false";
+      if(this.contactInfo.Nombre==="" || this.contactInfo.Correo==="" || this.contactInfo.Estado==="")
+      {
+          this.validar = "true";
+      } 
+      else{
+        this.contactCreated.emit(this.contactInfo);
+        this.clearContactInfo();
+      }  
   }  
   
-  
-
 }

@@ -6,9 +6,9 @@
         <div class="form-group">
             <label for="nombre">Nombre de contacto</label>
             <input type="text" #nombre="ngModel" id="nombre" [(ngModel)]="contactInfo.Nombre" name = "nombre" class="form-control" required/>
-            <div *ngIf="nombre.touched && !nombre.valid">
+            <!-- <div *ngIf="nombre.touched && !nombre.valid">
                 <div *ngIf="nombre.errors.required">nombre es requerido </div> 
-            </div>            
+            </div>   -->          
         </div>
         <div class="form-group">
             <label for="correo-input">Correo</label>
@@ -22,7 +22,7 @@
             </select>             
             <!-- <input type="text" id="estado-input" [(ngModel)]="contactInfo.Estado" name = "Estado" class="form-control" /> -->
         </div>
-        <button type="button" class="btn btn-primary" (click)="addOrUpdateContactRecord($event);">Guardar</button>
-
+        <button type="button" class="btn btn-primary" (click)="addOrUpdateContactRecord($event);" >Guardar</button>
+        <div *ngIf="validar === 'true'">Todos los campos son requeridos </div> 
     </form>
 </div>
