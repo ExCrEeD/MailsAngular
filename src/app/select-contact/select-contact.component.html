@@ -1,0 +1,25 @@
+<div>
+    <!-- <a href="#" id="new-button">Nuevo correoo</a> -->
+     <h4 *ngIf="currentMail.Evento === 'none'">Contactos</h4> 
+     <h4 *ngIf="currentMail.Evento === 'para'">Para</h4> 
+     <h4 *ngIf="currentMail.Evento === 'bcc'">BCC</h4> 
+     <h4 *ngIf="currentMail.Evento === 'cc'">CC</h4> 
+     <br>
+    <table class = "table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+         <tr *ngFor="let contactInfo of contactData"> 
+            <td *ngIf="contactInfo.Estado === 'Activo'">{{contactInfo.Nombre}}</td>
+            <!-- <td>{{correoInfo.Password}}</td> -->          
+            <td *ngIf="contactInfo.Estado === 'Activo' && currentMail.Evento != 'none' " width = 2> 
+                <button type="button" class="btn btn-primary" (click)="editRecord(contactInfo)">Agregar</button>                
+            </td>
+        </tr> 
+    </tbody>
+    </table>
+</div>
+    

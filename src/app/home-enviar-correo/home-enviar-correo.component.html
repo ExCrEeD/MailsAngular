@@ -1,0 +1,11 @@
+<h4 align = "center">Enviar un nuevo correo</h4> 
+<br>
+<div class="row">
+    <div class="col-md-4">
+        <!--  <app-add-or-update-correo (correoCre ated)="createOrUpdateCorreo($event)" [correoInfo]="currentCorreo"></app-add-or-update-correo>   -->
+        <app-select-contact [contactData]="contactData" [currentMail]="currentMail" (updateObject)="updateObject($event)" ></app-select-contact>
+    </div>
+    <div class="col-md-6">       
+        <app-enviar-correo [correoData]="correoData" [contactData]="contactData" [currentMail]="currentMail" (updateObject)="updateObject($event)" (sendMail)="sendMail($event)" ></app-enviar-correo>
+    </div>
+</div>

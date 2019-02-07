@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 
 import { WorkoutService } from './Services/workout.service';
 import { CorreosService  } from './Services/correos.service';
+import { EnviarService } from './Services/enviar.service'
+
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AddOrUpdateContactComponent } from './add-or-update-contact/add-or-update-contact.component';
@@ -17,6 +19,11 @@ import { CorreosComponent } from './correos/correos.component';
 import { HomeCorreoComponent } from './home-correo/home-correo.component';
 import { AddOrUpdateCorreoComponent } from './add-or-update-correo/add-or-update-correo.component';
 import { EnviarCorreoComponent } from './enviar-correo/enviar-correo.component';
+import { HomeEnviarCorreoComponent } from './home-enviar-correo/home-enviar-correo.component';
+import { SelectContactComponent } from './select-contact/select-contact.component';
+
+import { ToastrModule } from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -30,15 +37,25 @@ import { EnviarCorreoComponent } from './enviar-correo/enviar-correo.component';
     HomeCorreoComponent,
     AddOrUpdateCorreoComponent,
     EnviarCorreoComponent,
+    HomeEnviarCorreoComponent,
+    SelectContactComponent,
+    
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [WorkoutService,CorreosService],
+  providers: [
+    WorkoutService,
+    CorreosService,
+    EnviarService
+    ]
+    ,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

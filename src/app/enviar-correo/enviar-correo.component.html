@@ -1,3 +1,83 @@
-<p>
-  enviar-correo works!
-</p>
+<div class="container">
+<form autocomplete="off" #formulario="ngForm" >
+  <div class="form-group">
+    <div class="row">
+        <div class="col-sm-2"><label >De</label></div>
+        <div class = "col-sm-6">
+            <select class="form-control" id = "de" [(ngModel)]="currentMail.De" [ngModelOptions]="{standalone: true}" name = "de" required  >
+                <option *ngFor="let correos of correoData" [value] = "correos.Email" >{{correos.Email}}</option> 
+              </select>  
+        </div>        
+    </div> 
+    <br>
+    <div class="row">
+        <div class="col-sm-2"><label for="para">Para</label></div>
+        <div class = "col-sm-8">
+            <input type="email" id="para" [(ngModel)]="currentMail.Para" name = "para" class="form-control" required disabled/>
+        </div>
+        <div class = "col-sm-1">
+            <button type="button" class="btn btn-success" (click)="updateEvent(currentMail,'para')">+</button>
+        </div>
+        <div class = "col-sm-1">
+            <button type="button" class="btn btn-primary" (click)="clearEvent(currentMail,'para')">limpiar</button>
+        </div>
+    </div>   
+    <br> 
+    <div class="row">
+        <div class="col-sm-2"><label for="asunto">Asunto</label></div>
+        <div class = "col-sm-8">
+            <input type="text" id="asunto" [(ngModel)]="currentMail.Asunto" name = "asunto" class="form-control" required/> 
+        </div>
+    </div>   
+    <br>   
+    <div class="row">
+        <div class="col-sm-2"><label for="cc">CC</label></div>
+        <div class = "col-sm-8">
+            <input type="email" id="cc" [(ngModel)]="currentMail.Cc" name = "cc" class="form-control"  disabled/>
+        </div>
+        <div class = "col-sm-1">
+            <button type="button" class="btn btn-success" (click)="updateEvent(currentMail,'cc')">+</button>
+        </div>
+        <div class = "col-sm-1">
+            <button type="button" class="btn btn-primary" (click)="clearEvent(currentMail,'cc')">limpiar</button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-2"><label for="bcc">BCC</label></div>
+        <div class = "col-sm-8">
+            <input type="email" id="bcc" [(ngModel)]="currentMail.Bcc" name = "bcc" class="form-control"  disabled/>
+        </div>
+        <div class = "col-sm-1">
+            <button type="button" class="btn btn-success" (click)="updateEvent(currentMail,'bcc')">+</button>
+        </div>
+        <div class = "col-sm-1">
+            <button type="button" class="btn btn-primary" (click)="clearEvent(currentMail,'bcc')">limpiar</button>
+        </div>
+    </div> 
+    <br>
+    <div class="row">
+        <div class="col-sm-4"><label >Tipo de archivo</label></div>
+        <div class = "col-sm-8">
+            <div class="custom-control custom-radio custom-control-inline" required>    
+                <input value = "json" [(ngModel)]="currentMail.Formato" type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" checked required>
+                <label class="custom-control-label" for="defaultInline1">Json</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input value = "xml" [(ngModel)]="currentMail.Formato" type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
+                <label class="custom-control-label" for="defaultInline2">Xml</label>
+              </div>
+        </div>
+    </div>  
+    <br>
+    <div class="row">
+        <div class="col-sm-2"><label for="Mensaje">Mensaje</label></div>
+        <div class = "col-sm-8">
+            <textarea rows="2" cols="50" type="text" id="correo-input" [(ngModel)]="currentMail.Mensaje" name = "Correo" class="form-control" required></textarea>
+        </div>
+    </div>      
+</div>
+  <button type="button" class="btn btn-primary" [disabled]="!formulario.form.valid" (click)="sendEmail($event);" >Enviar</button>
+  <div *ngIf="validar === 'true'"> </div> 
+</form>
+</div>

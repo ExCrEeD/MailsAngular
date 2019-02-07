@@ -31,15 +31,31 @@ export class HomeCorreoComponent implements OnInit {
     correoWithId = _.find(this.correoData,(tempCorreo=> tempCorreo.Id === correo.Id));
     if (correoWithId)
     {
-       const updateIndex = _.findIndex(this.correoData,{Id:correoWithId.Id});
-       this.correosService.update(correo).subscribe(correoRecord=> this.correoData.splice(updateIndex,1,correo));
-    }else{ 
-       this.correosService.add(correo).subscribe(correoRecord=> this.correoData.push(correo))
-       this.currentCorreo = this.setInitialValuesForCorreoData();
+      if(correoWithId.Id===undefined)
+      {
+        this.addMail(correo);
+      }
+      else
+      {
+        const updateIndex = _.findIndex(this.correoData,{Id:correoWithId.Id});
+        this.correosService.update(correo).subscribe(correoRecord=> this.correoData.splice(updateIndex,1,correo));
+      }      
+    }
+    else
+    {   
+       this.addMail(correo);
+       //this.ngOnInit();
     }
     this.currentCorreo = this.setInitialValuesForCorreoData();
   }
    
+  private addMail(correo:any)
+  {
+    this.correosService.add(correo).subscribe();
+    this.currentCorreo = this.setInitialValuesForCorreoData();
+    this.correosService.get().subscribe((data:any)=>this.correoData=data);
+  }
+  
   public editClicked = function(record) {
     this.currentCorreo = record;
   };
