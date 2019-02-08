@@ -1,0 +1,40 @@
+<h6>Filtrar por</h6>
+<br>
+<div class  = "container">
+  <form autocomplete="off" #formulario="ngForm" >
+    <div class="form-group">
+      <div class="row">   
+          <label>De</label >
+          <div class = "col-sm-2">
+            <input type="email" id="de" [(ngModel)]="currentMail.De" name = "de" class="form-control"/>   
+          </div>  
+          <label for="para">Para</label>
+          <div class = "col-sm-2">
+              <input type="email" id="para" [(ngModel)]="currentMail.Para" name = "para" class="form-control"/>
+          </div>   
+          <label for="cc">CC</label>
+          <div class = "col-sm-2">
+              <input type="email" id="cc" [(ngModel)]="currentMail.Cc" name = "cc" class="form-control" />
+          </div>   
+          <label for="cc">Tipo de Archivo</label>
+          <div class = "col-sm-2">
+            <input type="email" id="format" [(ngModel)]="currentMail.Formato" name = "format" class="form-control" />            
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <label for="cc">Fecha</label>
+          <div class = "col-sm-3">
+              <input id="date" type="date"  [(ngModel)]="currentMail.Fecha" name = "format" class="form-control" />
+          </div>   
+          <label for="bcc">BCC</label>
+          <div class = "col-sm-2">
+              <input type="email" id="bcc" [(ngModel)]="currentMail.Bcc" name = "bcc" class="form-control"  />
+          </div>   
+          <button type="button" class="btn btn-primary" (click)="filter($event);" >Filtrar</button> 
+        </div>
+      </div> 
+    </form>
+</div>
+   
+

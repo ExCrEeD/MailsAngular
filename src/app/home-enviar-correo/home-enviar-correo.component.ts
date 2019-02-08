@@ -32,6 +32,7 @@ export class HomeEnviarCorreoComponent implements OnInit {
   
   private setInitialValuesForMail()
    {
+     
       return{
           Id:undefined,
           De:"",
@@ -40,10 +41,12 @@ export class HomeEnviarCorreoComponent implements OnInit {
           Cc:"",
           Bcc:"",
           Mensaje:"",
-          Fecha: new Date(),
+          Fecha:  new Date(),
           Formato:"",
           Estado:"Enviado",
+          RutaArchivo:"",
           Evento:"none"
+
       }
    }
   
@@ -54,6 +57,7 @@ export class HomeEnviarCorreoComponent implements OnInit {
    
    public sendMail(record)
    {
+     console.log(record);
      this.enviarService.add(record).subscribe();
      this.currentMail = this.setInitialValuesForMail();
      this.showSuccess();

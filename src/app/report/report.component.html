@@ -1,0 +1,43 @@
+&nbsp;&nbsp;<div>
+  <!-- <a href="#" id="new-button">Nuevo Contacto</a> -->
+  <table class = "table table-bordered">
+  <thead>
+      <tr>
+          <th scope="col">De</th>
+          <th scope="col">Para</th>
+          <th scope="col">Asunto</th>
+          <th scope="col">Cc</th>
+          <th scope="col">Bcc</th>
+          <th scope="col">Mensaje</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Formato</th>
+          <th scope="col">Estado</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let correoInfo of correoData"> 
+          <td>{{correoInfo.De}}</td>
+          <td>{{correoInfo.Para}}</td>
+          <td>{{correoInfo.Asunto}}</td>
+          <td>{{correoInfo.Cc}}</td>
+          <td>{{correoInfo.Bcc}}</td>
+          <td>{{correoInfo.Mensaje}}</td>
+          <td>{{correoInfo.Fecha}}</td>
+          <td>{{correoInfo.Formato}}</td>
+          <!-- <td *ngIf="correoInfo.Estado == 'Leido'">{{correoInfo.Estado}}</td>  -->
+          <td> 
+            <select id="estado-input" [(ngModel)]="correoInfo.Estado" name = "estado-input" class="form-control"   >           
+                <option  value = "Enviado" [selected]="correoInfo.Estado == 'Enviado'" >Enviado</option>
+                <option value = "Entregado"[selected]="correoInfo.Estado == 'Entregado'">Entregado</option>
+                <option  value = "Leido" [selected]="correoInfo.Estado == 'Leido'">Leido</option>
+            </select>  
+          </td>
+          <td>
+              <button type="button" class="btn btn-primary" (click)="downloadFile(correoInfo)">↓</button>            
+          </td>
+      </tr>
+  </tbody>
+  </table>
+  
+  </div>
+  

@@ -24,6 +24,9 @@ import { SelectContactComponent } from './select-contact/select-contact.componen
 
 import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HomeReportComponent } from './home-report/home-report.component';
+import { ReportComponent } from './report/report.component';
+import { FilterReportComponent } from './filter-report/filter-report.component';
 
 
 @NgModule({
@@ -39,6 +42,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     EnviarCorreoComponent,
     HomeEnviarCorreoComponent,
     SelectContactComponent,
+    HomeReportComponent,
+    ReportComponent,
+    FilterReportComponent,
     
     
   ],
